@@ -307,7 +307,7 @@ else:
 
 
 # TO find duplicates eliments
-
+'''
 a=[1,2,3,2,6,10,11,3]
 
 dic={}
@@ -322,4 +322,199 @@ for key,value in dic.items():
 
 
 print(dic)
-print("Duplicates elements are",c)
+print("Duplicates elements are",c)'''
+'''
+
+dictionary built in methods
+
+dic.key , dic.value,dic.update(dic2)
+key 
+value 
+update
+from keys
+copy
+pop
+popitem
+fromkeys
+clear
+'''
+
+
+'''
+
+from collections import OrderedDict
+
+def check_order(string, reference):
+    # Create OrderedDicts for both strings
+    string_dict = OrderedDict.fromkeys(string)
+    print(string_dict)
+    reference_dict = OrderedDict.fromkeys(reference)
+    
+    # Check if the OrderedDict for the string matches the OrderedDict for the reference
+    
+    return string_dict == reference_dict
+
+# Input strings
+input_string = "hello world"
+reference_string = "helo wrd"
+
+# Check if the order of characters in input_string matches reference_string
+if check_order(input_string, reference_string):
+    print("The order of characters in the input string matches the reference string.")
+else:
+    print("The order of characters in the input string does not match the reference string.")
+
+
+
+'''
+
+'''
+
+ordereddict built in methods
+
+
+move_to_end(key, last=True): Move an item to the end or start.
+popitem(last=True): Remove and return an item (from the end or start).
+clear(): Remove all items.
+copy(): Return a shallow copy of the OrderedDict.
+fromkeys(iterable, value=None): Create an OrderedDict with specified keys and values.
+update([other]): Update dictionary with key-value pairs from another dictionar'''
+
+'''
+import re
+
+# Function to check if a password is valid
+def is_valid_password(password):
+    # Check the length of the password
+    print(password)
+    if 6 <= len(password) <= 12:
+        # Check if the password matches all the criteria using regular expression
+        if re.match(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$#@])", password):
+            return True
+    return False
+    
+# re.match(r"^(?=*[a-z])(?=.*[A-Z]))
+# Initialize a list to store valid passwords
+valid_passwords = []
+
+# Accept input from the user as comma-separated passwords
+passwords = input("Enter passwords separated by commas: ").split(',')
+
+# Iterate through the passwords and check their validity
+for psw in passwords:
+    if is_valid_password(psw.strip()):  # strip() removes extra spaces
+        valid_passwords.append(psw.strip())
+        print(valid_passwords)
+
+# Print the valid passwords separated by commas
+print(','.join(valid_passwords))
+'''
+
+'''
+
+def binary_search(arr, k, f, l):
+    while f <= l:  # Search as long as f is less than or equal to l
+        m = (f + l) // 2  # Correctly calculate the middle index
+        
+        if arr[m] == k:  # If the middle element is the target
+            return m
+        
+        elif arr[m] > k:  # If the target is smaller, narrow the search to the left half
+            l = m - 1
+        else:  # If the target is larger, narrow the search to the right half
+            f = m + 1
+            
+    return -1  # If the element is not found, return -1
+
+# Example array
+arr = [2, 6, 15, 5, 10, 22, 1, 4]
+arr = sorted(arr)  # Sort the array
+
+k = 10  # Target element
+
+# Perform the binary search
+index = binary_search(arr, k, f=0, l=len(arr) - 1)
+
+# Check the result
+if index != -1:
+    print("True")
+else:
+    print("False")
+'''
+
+'''
+def even_numbers(n):
+    # Generate even numbers from 0 to n
+    for num in range(n + 1):
+        if num % 2 == 0:
+            yield num
+          
+try:
+    # Take input from the user
+    n = int(input("Enter a value for n: "))
+    
+    # Get the generator for even numbers
+    result = even_numbers(n)
+    print(result)
+    
+    # Convert the result to a list and join them as a string
+    print(','.join(map(str,result)))
+
+except ValueError:
+    # Handle invalid input
+    print("Invalid input. Please enter a valid integer for n.")
+'''
+
+
+'''
+
+
+
+def extract_username(email):
+    # Split the email address at '@' to separate the username and domain
+    parts = email.split('@')
+    print(parts)
+    
+    # Check if the email address has the expected format (i.e., one '@' symbol)
+    if len(parts) == 2:
+        return parts[0]  # The username is the first part
+    else:
+        return "Invalid email format"  # Return an error message if the format is incorrect
+
+try:
+    # Accept the email address from the user
+    email = input("Enter an email address: ")
+    
+    # Call the function to extract the username
+    username = extract_username(email)
+    
+    # Print the extracted username or error message
+    print(username)
+
+except Exception as e:
+    # Handle unexpected errors and invalid input
+    print(f"An error occurred: {e}")
+
+
+
+
+
+
+def filter_list(lst):
+    # Use a list comprehension to filter out integers
+    return [x for x in lst if isinstance(x, int)]
+
+# Example usage
+result = filter_list([1, 2, 3, "a", "b", 4])
+print(result)
+'''
+'''
+def filter_list(1st):
+    return [x for x in 1st if isinstance(x, int)]
+
+result = filter_list([1,2,3,4,5,'a','b',4])
+print(result)
+'''
+
+
+
